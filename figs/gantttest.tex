@@ -117,7 +117,7 @@
     \ganttbluebar[name=integrationtesting]{Test integrated app and firmware}{2020-02-24}{2020-02-28} \\ [grid]
 
     % Software to work with hardware iteration 3
-    \ganttbluebar[name=usertesting]{User testing of device}{2020-03-02}{2020-03-02} \\ [grid]
+    \ganttbluebar[name=usertesting]{Focus group testing of device}{2020-03-02}{2020-03-02} \\ [grid]
     \ganttbluebar[name=devadditionalapp1]{Develop additional app 1}{2020-03-04}{2020-03-20} \\ [grid]
     \ganttbluebar[name=testadditionalapp1]{Test additional app 1}{2020-03-04}{2020-03-20} \\ [grid]
     \ganttbluebar[name=devadditionalapp2]{Develop additional app 2}{2020-03-04}{2020-03-20} \\ [grid]
@@ -126,7 +126,8 @@
     \ganttbluebar[name=testadditionalapp3]{Test additional app 3}{2020-03-04}{2020-03-20} \\ [grid]
     \ganttbluebar[name=refinecentralapp]{Refine central app}{2020-03-04}{2020-03-13} \\ [grid]
     \ganttbluebar[name=refinefirmware]{Refine firmware}{2020-03-04}{2020-03-10} \\ [grid]
-    \ganttbluebar[name=cleanupsdk]{Clean up SDK}{2020-03-11}{2020-03-13}
+    \ganttbluebar[name=cleanupsdk]{Clean up SDK}{2020-03-11}{2020-03-13} \\ [grid]
+    \ganttbluebar[name=usereval]{Focus group evaluation}{2020-03-16}{2020-03-16}
 
     \ganttnewline[thick, black] \\ [grid]
 
@@ -144,6 +145,7 @@
     \ganttlink{usertesting}{refinecentralapp}
     \ganttlink{usertesting}{refinefirmware}
     \ganttlink{refinefirmware}{cleanupsdk}
+    \ganttlink{refinecentralapp}{usereval}
     \ganttlink{usertesting}{devadditionalapp1}
     \ganttlink{usertesting}{testadditionalapp1}
     \ganttlink{usertesting}{devadditionalapp2}

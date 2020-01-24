@@ -30,7 +30,7 @@
 % ]
 
 \begin{abstract} 
-louis is an affordable, interactive and assistive device for learning braille. It includes an application ecosystem and has a unique, physically-extensible, modular design. First, we will develop a Lego prototype of the main controller and one refreshable character module that can display the letter `A'. We then extend this model to include the full braille character set. Our firmware API will be completed by this point and we will start developing a primary `main' application, as well as a teaching flashcard app. Our next step is to incrementally miniaturize our hardware by replacing parts with smaller, 3D-printed, alternatives. We will develop two additional character modules and showcase our modular design. And finally, we will add audio input support, enabling more advanced apps to be developed and added to the application ecosystem.
+louis is an affordable, interactive and assistive device for learning braille. It includes an application ecosystem and has a unique, physically-extensible, modular design. First, we will develop a Lego prototype of the main controller and one refreshable character module that can display a single letter. We then extend this model to include the full braille character set. We will develop the firmware API and a primary `main' application, as well as a teaching flashcard app. Our next step is to incrementally miniaturize our hardware by replacing parts with smaller, 3D-printed, alternatives. We will develop two additional character modules to showcase our modular design. And finally, we will add audio input support, enabling more advanced apps to be developed and added to the application ecosystem.
 \end{abstract}
 
 \section{Goal description} 
@@ -45,13 +45,13 @@ Since louis primarily serves as an aid to learn and interact with braille, our p
 
 \subsubsection{The importance of braille}
 
-It has been argued that braille is becoming a less relevant tool, given digital technologies prevalence throughout our society. However, studies have shown that students who can read braille tend to acquire higher literacy rates \cite{earlybraille}. And a survey conducted by Louisiana Tech University found that people who learn braille have a much higher chance of securing a job \cite{transformingbraille}. Braille education is crucial to literacy, and literacy is crucial to employment.
+It has been argued that braille is becoming a less relevant tool, given digital technologies prevalence throughout our society. However, studies have shown that students who can read braille tend to acquire higher literacy rates \cite{earlybraille}. One survey conducted by Louisiana Tech University found that people who learn braille have a much higher chance of securing a job \cite{transformingbraille}. Braille education is crucial to literacy, and literacy is crucial to employment.
 
-louis also allows users to learn skills such as spelling, punctuation and capitalisation, whereas the alternative, audio, does not. Audiobooks have provided an excellent additional resource for reading comprehension, but passive listening does not have the same effect as active reading and writing. Audio transcription is also not always appropriate or viable in certain situations, for example in a crowded lift. Braille offers a system for labelling all kinds of items (like lift buttons and medicines) which aids independence and raises self-esteem.
+Braille allows users to learn skills like spelling, punctuation and capitalisation, whereas a common alternative, audio, does not. Audiobooks have provided an excellent additional resource for reading comprehension, but passive listening does not have the same effect as active reading and writing. Audio transcription is also not always appropriate or viable in certain situations, for example in a crowded lift. Braille offers a system for labelling all kinds of items (e.g: lift buttons and medicines) which aids independence and raises self-esteem.
 
 \subsubsection{The current market}
 
-Even though learning braille has been proven to be beneficial, literacy rates are low. In the UK less than 5\% of legally blind people have the ability to read braille \cite{brailleprofiling}. Among the causes are school budget constraints and personal financial limitations. The prices of the current devices on the market are described by users as ``\emph{phenomenally high}'' \cite{brailledisplays}, and justly so. Modern notetakers, which include some Android and Windows applications, are sold for more than \pounds 800 and learning tools are priced at over \$2,000. Another issue raised in the user research is the necessary repairs, which are ``\emph{extremely inconvenient, [...] not to mention the expense}'' \cite{brailledisplays}. Our modular architecture of the display means that users won't have to go without their devices, as they will be able to use as many, or as few, braille cells as they need. This also keeps the initial cost of our product low, with `pay-for-what-you-use' characters to grow your braille display.
+Even though learning braille has been proven to be beneficial, literacy rates are low. In the UK less than 5\% of legally blind people have the ability to read braille \cite{brailleprofiling}. Among the causes are school budget constraints and personal financial limitations. The prices of the current devices on the market are described by users as ``\emph{phenomenally high}'' \cite{brailledisplays}, and justly so. Modern notetakers, which include some Android and Windows applications, are sold for more than \pounds 800 and learning tools are priced at over \$2,000. Another issue raised in the user research is the necessary repairs, which are ``\emph{extremely inconvenient, [...] not to mention the expense}'' \cite{brailledisplays}. Our modular architecture means that users won't have to go without their devices, as they will be able to use as many, or as few braille cells as they need. This also keeps the initial cost of our product low, with `pay-for-what-you-use' characters to grow your braille display.
 
 Moreover, most refreshable braille learning devices that are currently on the market are aimed at children, whereas our product is aimed at users of all ages. It can support all kinds of learning apps, as well as serve as a more general assistant. With our open SDK, our robot can be useful, relevant and accessible to everyone.
 
@@ -75,7 +75,7 @@ A unique aspect of louis that distinguishes itself from its competitors is that 
 
 We have identified our main technical goals to be the following: 
 \begin{enumerate}
-  \item User selection of letters display speed and application
+  \item User selection of letters, display speed and application
   \item Start of flashcard or other application
   \item Choice of next letters to display by application 
   \item Output of braille letters on device cells 
@@ -100,7 +100,7 @@ These main system requirements are summarized in the goal model shown in Figure 
 
 \subsection{Milestones} 
 
-We have defined the following milestones and evaluation methods based on the technical goals defined in the section above:
+We have defined the following milestones and evaluation measures based on the technical goals defined in the section above:
 
 \subsubsection{Hardware}
 
@@ -111,7 +111,7 @@ We have defined the following milestones and evaluation methods based on the tec
     \begin{enumerate}
       \item Motor rotates, pins move up and down
       \item Two additional 3D-printed cells
-      \item Audio or physical input integration: user passes on selections
+      \item Audio or physical input integration
     \end{enumerate}
     \item Evidence and evaluation:
     \begin{enumerate}
@@ -144,20 +144,9 @@ We have defined the following milestones and evaluation methods based on the tec
   \item Evidence and evaluation:
   \begin{enumerate}
     \item Letter displayed after a reasonable amount of time
-    \item Physical and audio display of letters at correctly timed intervals (and audio output returned after physical, also timed appropriately (tbd))
+    \item Physical and audio display of letters at correctly timed intervals (and audio output returned after physical, also timed appropriately)
     \item Letters displayed at correct speed for each choice (can time it); correct app selected
     \item Correct letter sequence for each additional app is returned
-    \begin{enumerate}
-      \item Motor rotates, pins move up and down
-      \item Two additional 3D-printed cells
-      \item Audio or physical input integration: user passes on selections
-    \end{enumerate}
-    \item Evidence and evaluation:
-    \begin{enumerate}
-      \item Correct display of one specific letter (e.g `A')
-      \item Correct display of sequence of three letters
-      \item Audio output confirming speed and app choice
-    \end{enumerate}
   \end{enumerate}
 \end{enumerate}
 
@@ -176,14 +165,13 @@ The required tasks for the project were split into atomic units. A Gantt chart, 
 \vskip -5mm
 \end{figure*} 
 
-To make the high-level tasks more manageable, we will be routinely incorporating story decomposition into our workflow. The process comes from the agile methodology, as outlined in the workshop for project planning. By breaking down stories into smaller tasks, we hope to increase iteration speeds and regularly deliver incremental value gains.
-
+To make the high-level tasks more manageable, we will be routinely incorporating story decomposition into our workflow. The process comes from the agile methodology, as outlined in the workshop for project planning. By breaking down stories into smaller tasks, we will increase iteration speeds and regularly deliver incremental value gains.
 
 \subsection{Resource distribution}
 
 \subsubsection{Human resources}
 
-Our company, ThreeDots, is composed of ten members. Over the next 11 weeks, each will commit approximately 200 hours to our project, louis.
+Our company, ThreeDots, is composed of ten members. Over the next eleven weeks, each will commit approximately 200 hours to our project, louis.
 
 Ten percent of this time will be remitted to allow individuals to complete their final report. This is proportional to the allocated marks (relative to the rest of the project), as well as to the time available after the final demonstration (one week).
 
@@ -246,7 +234,7 @@ Total                          & 1620  \\ \hline
 \end{center}
 \end{table}
 
-Intentionally, we have failed to assign 10 percent of the available time, to account for natural project slippage and alleviate unforeseen delays.
+Intentionally, we have failed to assign ten percent of the available time, to account for natural project slippage and alleviate unforeseen delays.
 
 \subsubsection{Hardware, Finance and Technician Time Budgeting}
 
@@ -320,7 +308,7 @@ Potential risks identified and corresponding actions that will be taken if we ar
 \begin{table*}[h]
 \begin{center}
 \begin{small}
-\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{0.5cm}|p{0.5cm}|p{3cm}|}
+\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{1cm}|p{1.2cm}|p{3cm}|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Risk                                                                                              & Impact on project                                                                                               & Measures taken to minimize                                                                                                                                                                                & Severity & Likelihood & Contingency plan                                                                                                                                  \\ \hline
@@ -380,7 +368,7 @@ Opportunities (external factors)                                                
 
 \section{Group organisation}
 
-The organisational structure is based on the distribution of pre-existing skills as to increase the probability of on-time delivery of the project while still accommodating individual team members' desire to learn new skills in areas they lack expertise. The project manager is mainly responsible for activity and resource allocation, as well as risk analysis and contingency planning, whereas the secretary is mainly concerned with the management of deadlines and meeting planning.
+The organisational structure is based on the distribution of pre-existing skills as to increase the probability of on-time delivery of the project while still accommodating individual team members' desire to learn new skills in areas they lack expertise. The project manager is responsible for activity and resource allocation, as well as risk analysis and contingency planning, whereas the secretary is concerned with the management of deadlines and meeting planning.
 
 The rest of the team is divided into the functional units of \it{hardware} and \it{software}, and sub-units for system design, and low-level/high-level for software. Communication between the system design role of hardware and software is essential in order to ensure the interoperability of the systems developed independently by the team members.
 
