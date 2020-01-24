@@ -30,7 +30,7 @@
 % ]
 
 \begin{abstract} 
-louis is an affordable, interactive and assistive device for learning braille. It includes an application ecosystem and has a unique, physically-extensible, modular design. First, we will develop a Lego prototype of the main controller and one refreshable character module that can display a single letter. We will then extend this model to include the full braille character set. We will then develop the firmware API and a primary `main' application, as well as a teaching flashcard app. Our next step is to incrementally miniaturize our hardware by replacing parts with smaller, 3D-printed, alternatives. We will develop two additional character modules to showcase our modular design. And finally, we will add audio input support, enabling more advanced apps to be developed and added to the application ecosystem.
+louis is an affordable, interactive and assistive device for learning braille. It includes an application ecosystem and has a unique, physically-extensible, modular design. First, we will develop a Lego prototype of the main controller and one refreshable character module that can display a single letter. We extend this model to include the full braille character set. We will then develop the firmware API and a primary `main' application, as well as a teaching flashcard app. Our next step is to incrementally miniaturize our hardware by replacing parts with smaller, 3D-printed, alternatives. We will develop two additional character modules to showcase our modular design. And finally, we will add audio input support, enabling more advanced apps to be developed and added to the application ecosystem.
 \end{abstract}
 
 \section{Goal description} 
@@ -45,7 +45,7 @@ Since louis primarily serves as an aid to learn and interact with braille, our p
 
 \subsubsection{The importance of braille}
 
-It has been argued that braille is becoming a less relevant tool, given digital technologies prevalence throughout our society. However, studies have shown that students who can read braille tend to acquire higher literacy rates \cite{earlybraille}. A survey conducted by Louisiana Tech University found that people who learn braille have a much higher chance of securing a job \cite{transformingbraille}. Braille education is crucial to literacy, and literacy is crucial to employment.
+It has been argued that braille is becoming a less relevant tool, given digital technology's prevalence throughout our society. However, studies have shown that students who can read braille tend to acquire higher literacy rates \cite{earlybraille}. A survey conducted by Louisiana Tech University found that people who learn braille have a much higher chance of securing a job \cite{transformingbraille}. Braille education is crucial to literacy, and literacy is crucial to employment.
 
 Braille allows users to learn skills like spelling, punctuation and capitalisation, whereas a common alternative, audio, does not. Audiobooks have provided an excellent additional resource for reading comprehension, but passive listening does not have the same effect as active reading and writing. Audio transcription is also not always appropriate or viable in certain situations, for example in a crowded lift. Braille offers a system for labelling all kinds of items (e.g: lift buttons and medicines) which aids independence and raises self-esteem.
 
@@ -75,7 +75,7 @@ A unique aspect of louis that distinguishes itself from its competitors is that 
 
 We have identified our main technical goals to be the following: 
 \begin{enumerate}
-  \item User selection of letters display speed and application
+  \item User selection of letters, display speed and application
   \item Start of flashcard or other application
   \item Choice of next letters to display by application 
   \item Output of braille letters on device cells 
@@ -120,7 +120,7 @@ We have defined the following milestones and evaluation measures based on the te
     \begin{enumerate}
       \item Motor rotates, pins move up and down
       \item Two additional 3D printed cells
-      \item Audio or physical input integration: user passes on selections
+      \item Audio or physical input integration
     \end{enumerate}
     \item Evidence and evaluation:
     \begin{enumerate}
@@ -144,20 +144,9 @@ We have defined the following milestones and evaluation measures based on the te
   \item Evidence and evaluation:
   \begin{enumerate}
     \item Letter displayed after a reasonable amount of time
-    \item Physical and audio display of letters at correctly timed intervals (and audio output returned after physical, also timed appropriately (tbd))
+    \item Physical and audio display of letters at correctly timed intervals (and audio output returned after physical, also timed appropriately)
     \item Letters displayed at correct speed for each choice (can time it); correct app selected
     \item Correct letter sequence for each additional app is returned
-    \begin{enumerate}
-      \item Motor rotates, pins move up and down
-      \item Two additional 3D printed cells
-      \item Audio or physical input integration: user passes on selections
-    \end{enumerate}
-    \item Evidence and evaluation:
-    \begin{enumerate}
-      \item Correct display of one specific letter (e.g `A')
-      \item Correct display of sequence of three letters
-      \item Audio output confirming speed and app choice
-    \end{enumerate}
   \end{enumerate}
 \end{enumerate}
 
