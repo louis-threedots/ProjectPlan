@@ -1,0 +1,194 @@
+\documentclass{standalone}
+\usepackage{color}
+\usepackage{tikz}
+
+\usepackage{pgfgantt}
+%Used to draw gantt charts, which I will use for the calendar.
+%Let's define some awesome new ganttchart elements:
+\newganttchartelement{orangebar}{
+    orangebar/.style={
+        inner sep=0pt,
+        draw=red!66!black,
+        very thick,
+        top color=white,
+        bottom color=orange!80
+    },
+    orangebar label font=\slshape,
+    orangebar left shift=.1,
+    orangebar right shift=-.1
+}
+
+\newganttchartelement{bluebar}{
+    bluebar/.style={
+        inner sep=0pt,
+        draw=purple!44!black,
+        very thick,
+        top color=white,
+        bottom color=blue!80
+    },
+    bluebar label font=\slshape,
+    bluebar left shift=.1,
+    bluebar right shift=-.1
+}
+
+\newganttchartelement{greenbar}{
+    greenbar/.style={
+        inner sep=0pt,
+        draw=green!50!black,
+        very thick,
+        top color=white,
+        bottom color=green!80
+    },
+    greenbar label font=\slshape,
+    greenbar left shift=.1,
+    greenbar right shift=-.1
+}
+
+\begin{document}
+\begin{ganttchart}[
+    hgrid style/.style={black, dotted},
+    vgrid={*5{black,dotted}, *1{white, dotted}, *1{black, dashed}},
+    x unit=3mm,
+    y unit chart=8mm,
+    y unit title=12mm,
+    time slot format=isodate,
+    group label font=\bfseries \Large,
+    link/.style={->, thick}
+    ]{2020-01-27}{2020-04-03}
+    \gantttitlecalendar{year, month=name, week} \\
+
+    \ganttgroup[
+        group/.append style={fill=orange}
+    ]{Hardware}{2019-01-01}{2019-01-01}
+    \ganttgroup[
+        inline=true,group/.append style={fill=orange}
+    ]{Iteration 1}{2020-01-27}{2020-01-31}
+    \ganttgroup[
+        name=hwit2,inline=true,group/.append style={fill=orange}
+    ]{Iteration 2}{2020-02-03}{2020-02-28}
+    \ganttgroup[
+        inline=true,group/.append style={fill=orange}
+    ]{Iteration 3}{2020-03-02}{2020-03-13} \\ [grid]
+
+    % Hardware iteration 1
+    \ganttorangebar[name=legoconstruct]{Construct Lego Braille cell}{2020-01-27}{2020-01-28} \\ [grid]
+    \ganttorangebar[name=legoelectronics]{Interface electronics with Lego cell}{2020-01-29}{2020-01-31} \\ [grid]
+
+    % Hardware iteration 2
+    \ganttorangebar[name=3dprintmechanism]{3D-printed mechanism to replace Lego prototype}{2020-02-03}{2020-02-07} \\ [grid]
+    \ganttorangebar[name=additional3dcell1]{Build additional 3D-printed cell}{2020-02-10}{2020-02-21} \\ [grid]
+    \ganttorangebar[name=additional3dcell2]{Build additional 3D-printed cell}{2020-02-10}{2020-02-21} \\ [grid]
+    \ganttorangebar[name=eolbutton]{Button to indicate end of cell line}{2020-02-10}{2020-02-21} \\ [grid]
+    \ganttorangebar[name=audioio]{Audio input / output hardware}{2020-02-10}{2020-02-28} \\ [grid]
+
+    % Hardware iteration 3
+    \ganttorangebar[name=eolsensor]{Replace end-of-cell-line button with sensor}{2020-03-02}{2020-03-06} \\ [grid]
+    \ganttorangebar[name=cellcasing]{Develop casing for cell}{2020-03-02}{2020-03-13}
+
+    \ganttnewline[thick, black]
+
+    % Links internal to the Hardware section
+    \ganttlink{legoconstruct}{legoelectronics}
+    \ganttlink{legoelectronics}{3dprintmechanism}
+    \ganttlink{3dprintmechanism}{additional3dcell1}
+    \ganttlink{3dprintmechanism}{additional3dcell2}
+    \ganttlink{3dprintmechanism}{eolbutton}
+    \ganttlink{3dprintmechanism}{audioio}
+    \ganttlink{hwit2}{eolsensor}
+    \ganttlink{audioio}{eolsensor}
+    \ganttlink{audioio}{cellcasing}
+
+    \ganttgroup[
+        group/.append style={fill=blue}
+    ]{Software}{2020-01-29}{2020-03-21} \\ [grid]
+
+    % Software to work with hardware iteration 1
+    \ganttbluebar[name=hardcodefirmware]{Firmware to move pins to hard-coded character}{2020-01-29}{2020-01-31} \\ [grid]
+
+    % Software to work with hardware iteration 2
+    \ganttbluebar[name=firmwareapi]{Firmware API design}{2020-02-03}{2020-02-03} \\ [grid]
+    \ganttbluebar[name=devfirmwarehigh]{Develop high-level firmware}{2020-02-05}{2020-02-18} \\ [grid]
+    \ganttbluebar[name=testfirmwarehigh]{Test high-level firmware}{2020-02-05}{2020-02-18} \\ [grid]
+    \ganttbluebar[name=devfirmwarelow]{Develop low-level firmware}{2020-02-05}{2020-02-18} \\ [grid]
+    \ganttbluebar[name=testfirmwarelow]{Test low-level firmware}{2020-02-05}{2020-02-18} \\ [grid]
+    \ganttbluebar[name=devcentralapp]{Develop central app}{2020-02-05}{2020-02-18} \\ [grid]
+    \ganttbluebar[name=testcentralapp]{Test central app}{2020-02-05}{2020-02-18} \\ [grid]
+    \ganttbluebar[name=interfaceappfirmware]{Interface app and firmware}{2020-02-19}{2020-02-21} \\ [grid]
+    \ganttbluebar[name=integrationtesting]{Test integrated app and firmware}{2020-02-24}{2020-02-28} \\ [grid]
+
+    % Software to work with hardware iteration 3
+    \ganttbluebar[name=usertesting]{User testing of device}{2020-03-02}{2020-03-02} \\ [grid]
+    \ganttbluebar[name=devadditionalapp1]{Develop additional app 1}{2020-03-04}{2020-03-20} \\ [grid]
+    \ganttbluebar[name=testadditionalapp1]{Test additional app 1}{2020-03-04}{2020-03-20} \\ [grid]
+    \ganttbluebar[name=devadditionalapp2]{Develop additional app 2}{2020-03-04}{2020-03-20} \\ [grid]
+    \ganttbluebar[name=testadditionalapp2]{Test additional app 2}{2020-03-04}{2020-03-20} \\ [grid]
+    \ganttbluebar[name=devadditionalapp3]{Develop additional app 3}{2020-03-04}{2020-03-20} \\ [grid]
+    \ganttbluebar[name=testadditionalapp3]{Test additional app 3}{2020-03-04}{2020-03-20} \\ [grid]
+    \ganttbluebar[name=refinecentralapp]{Refine central app}{2020-03-04}{2020-03-13} \\ [grid]
+    \ganttbluebar[name=refinefirmware]{Refine firmware}{2020-03-04}{2020-03-10} \\ [grid]
+    \ganttbluebar[name=cleanupsdk]{Clean up SDK}{2020-03-11}{2020-03-13}
+
+    \ganttnewline[thick, black] \\ [grid]
+
+    % Links internal to the software section
+    \ganttlink{hardcodefirmware}{firmwareapi}
+    \ganttlink{firmwareapi}{devfirmwarehigh}
+    \ganttlink{firmwareapi}{testfirmwarehigh}
+    \ganttlink{firmwareapi}{devfirmwarelow}
+    \ganttlink{firmwareapi}{testfirmwarelow}
+    \ganttlink{firmwareapi}{devcentralapp}
+    \ganttlink{firmwareapi}{testcentralapp}
+    \ganttlink{testcentralapp}{interfaceappfirmware}
+    \ganttlink{interfaceappfirmware}{integrationtesting}
+    \ganttlink{integrationtesting}{usertesting}
+    \ganttlink{usertesting}{refinecentralapp}
+    \ganttlink{usertesting}{refinefirmware}
+    \ganttlink{refinefirmware}{cleanupsdk}
+    \ganttlink{usertesting}{devadditionalapp1}
+    \ganttlink{usertesting}{testadditionalapp1}
+    \ganttlink{usertesting}{devadditionalapp2}
+    \ganttlink{usertesting}{testadditionalapp2}
+    \ganttlink{usertesting}{devadditionalapp3}
+    \ganttlink{usertesting}{testadditionalapp3}
+
+    \ganttgroup[
+        group/.append style={fill=green}
+    ]{Marketing}{2019-01-01}{2019-01-01}
+    \ganttgroup[
+        inline=true,group/.append style={fill=green}
+    ]{Demo 1}{2020-01-29}{2020-02-05}
+    \ganttgroup[
+        inline=true,group/.append style={fill=green}
+    ]{Demo 2}{2020-02-19}{2020-02-26}
+    \ganttgroup[
+        inline=true,group/.append style={fill=green}
+    ]{Demo 3}{2020-03-04}{2020-03-11}
+    \ganttgroup[
+        inline=true,group/.append style={fill=green}
+    ]{Trade Fair}{2020-03-16}{2020-04-03} \\ [grid]
+
+    % Items for Demo 1
+    \ganttgreenbar[name=demo1report]{Write Demo 1 report}{2020-01-29}{2020-02-03} \\ [grid]
+    \ganttgreenbar[name=prepdemo1]{Prepare for Demo 1}{2020-01-29}{2020-02-05} \\ [grid]
+
+    % Items for Demo 2
+    \ganttgreenbar[name=demo2report]{Write Demo 2 report}{2020-02-19}{2020-02-24} \\ [grid]
+    \ganttgreenbar[name=prepdemo2]{Prepare for Demo 2}{2020-02-19}{2020-02-26} \\ [grid]
+
+    % Items for Demo 3
+    \ganttgreenbar[name=demo3eport]{Write Demo 3 report}{2020-03-04}{2020-03-09} \\ [grid]
+    \ganttgreenbar[name=prepdemo3]{Prepare for Demo 3}{2020-03-04}{2020-03-11} \\ [grid]
+
+    % Items for Trade Fair Demo
+    \ganttgreenbar[name=writesdkdoc]{Write SDK documentation}{2020-03-16}{2020-03-30} \\ [grid]
+    \ganttgreenbar[name=writeuserguide]{Write user guide}{2020-03-16}{2020-03-30} \\ [grid]
+    \ganttgreenbar[name=tradefairreport]{Write Trade Fair report}{2020-03-16}{2020-03-30} \\ [grid]
+    \ganttgreenbar[name=preptradefair]{Prepare for Trade Fair}{2020-03-23}{2020-04-03}
+
+    % Links between sections
+    \ganttlink{legoconstruct}{hardcodefirmware}
+    \ganttlink{cleanupsdk}{writesdkdoc}
+    \ganttlink{refinecentralapp}{writeuserguide}
+
+\end{ganttchart}
+\end{document}
