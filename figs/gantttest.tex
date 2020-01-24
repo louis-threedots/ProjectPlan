@@ -61,7 +61,7 @@
         group/.append style={fill=orange}
     ]{Hardware}{2019-01-01}{2019-01-01}
     \ganttgroup[
-        inline=true,group/.append style={fill=orange}
+        name=hwit1,inline=true,group/.append style={fill=orange}
     ]{Iteration 1}{2020-01-27}{2020-01-31}
     \ganttgroup[
         name=hwit2,inline=true,group/.append style={fill=orange}
@@ -89,14 +89,16 @@
 
     % Links internal to the Hardware section
     \ganttlink{legoconstruct}{legoelectronics}
-    \ganttlink{legoelectronics}{3dprintmechanism}
+    %\ganttlink{legoelectronics}{3dprintmechanism}
+    \ganttlink{hwit1}{3dprintmechanism}
     \ganttlink{3dprintmechanism}{additional3dcell1}
     \ganttlink{3dprintmechanism}{additional3dcell2}
     \ganttlink{3dprintmechanism}{eolbutton}
     \ganttlink{3dprintmechanism}{audioio}
     \ganttlink{hwit2}{eolsensor}
-    \ganttlink{audioio}{eolsensor}
-    \ganttlink{audioio}{cellcasing}
+    \ganttlink{hwit2}{cellcasing}
+    %\ganttlink{audioio}{eolsensor}
+    %\ganttlink{audioio}{cellcasing}
 
     \ganttgroup[
         group/.append style={fill=blue}
