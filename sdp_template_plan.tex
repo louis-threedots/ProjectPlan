@@ -30,12 +30,12 @@
 % ]
 
 \begin{abstract} 
-louis is an affordable, interactive and assistive device for learning braille. It includes an application ecosystem and has a unique, physically-extensible, modular design. First, we will develop a Lego prototype of the main controller and one refreshable character module that can display a single letter. We extend this model to include the full braille character set. We will then develop the firmware API and a primary `main' application, as well as a teaching flashcard app. Our next step is to incrementally miniaturize our hardware by replacing parts with smaller, 3D-printed, alternatives. We will develop two additional character modules to showcase our modular design. And finally, we will add audio input support, enabling more advanced apps to be developed and added to the application ecosystem.
+louis is an affordable, interactive and assistive device for learning braille. It includes an application ecosystem and has a unique, physically-extensible, modular design. First, we will develop a Lego prototype of the main controller and one refreshable character module that can display a single letter. We then extend this model to include the full braille character set. We will develop the firmware API and a primary `main' application, as well as a teaching flashcard app. Our next step is to incrementally miniaturize our hardware by replacing parts with smaller, 3D-printed, alternatives. We will develop two additional character modules to showcase our modular design. And finally, we will add audio input support, enabling more advanced apps to be developed and added to the application ecosystem.
 \end{abstract}
 
 \section{Goal description} 
 
-Whether it exists on public signage, translated books, or on the back of important medication, braille literacy is an invaluable skill for visually impaired people which gives a freedom in everyday life that sighted people so casually take for granted. Whilst many visually impaired people use braille only for more practical reasons, it is also valuable in a variety of situations, including presenting; Former Home Secretary David Blunkett in 2012 urged people to learn braille saying that even the best computer braille displays and earpieces won't help you do a presentation in the same way as having your information on paper in front of you \cite{braillespreading}.
+Whether it exists on public signage, translated books, or on the back of important medication, braille literacy is an invaluable skill for visually impaired people which gives a freedom in everyday life that sighted people so casually take for granted. Whilst many visually impaired people use braille only for more practical reasons, it is also valuable in a variety of situations, including presenting; Former Home Secretary David Blunkett in 2012 urged people to learn braille saying that electronic displays and audio were still unsuitable substitutes for braille in several situations, such as delivering presentations \cite{braillespreading}.
 
 The problem we are trying to solve is decreasing braille literacy rates among blind or visually impaired people. At a previous estimate fewer than 1\% of visually impaired people in the UK were users of braille \cite{braillespreading}. Our solution is an interactive refreshable braille robot, coupled with fun and approachable software which can help both children and adults learn the universally accepted and useful system of braille. 
 
@@ -45,7 +45,7 @@ Since louis primarily serves as an aid to learn and interact with braille, our p
 
 \subsubsection{The importance of braille}
 
-It has been argued that braille is becoming a less relevant tool, given digital technology's prevalence throughout our society. However, studies have shown that students who can read braille tend to acquire higher literacy rates \cite{earlybraille}. A survey conducted by Louisiana Tech University found that people who learn braille have a much higher chance of securing a job \cite{transformingbraille}. Braille education is crucial to literacy, and literacy is crucial to employment.
+It has been argued that braille is becoming a less relevant tool, given digital technology's prevalence throughout our society. However, studies have shown that students who can read braille tend to acquire higher literacy rates \cite{earlybraille}. One survey conducted by Louisiana Tech University found that people who learn braille have a much higher chance of securing a job \cite{transformingbraille}. Braille education is crucial to literacy, and literacy is crucial to employment.
 
 Braille allows users to learn skills like spelling, punctuation and capitalisation, whereas a common alternative, audio, does not. Audiobooks have provided an excellent additional resource for reading comprehension, but passive listening does not have the same effect as active reading and writing. Audio transcription is also not always appropriate or viable in certain situations, for example in a crowded lift. Braille offers a system for labelling all kinds of items (e.g: lift buttons and medicines) which aids independence and raises self-esteem.
 
@@ -53,14 +53,14 @@ Braille allows users to learn skills like spelling, punctuation and capitalisati
 
 Even though learning braille has been proven to be beneficial, literacy rates are low. In the UK less than 5\% of legally blind people have the ability to read braille \cite{brailleprofiling}. Among the causes are school budget constraints and personal financial limitations. The prices of the current devices on the market are described by users as ``\emph{phenomenally high}'' \cite{brailledisplays}, and justly so. Modern notetakers, which include some Android and Windows applications, are sold for more than \pounds 800 and learning tools are priced at over \$2,000. Another issue raised in the user research is the necessary repairs, which are ``\emph{extremely inconvenient, [...] not to mention the expense}'' \cite{brailledisplays}. Our modular architecture means that users won't have to go without their devices, as they will be able to use as many, or as few braille cells as they need. This also keeps the initial cost of our product low, with `pay-for-what-you-use' characters to grow your braille display.
 
-Moreover, most refreshable braille learning devices that are currently on the market are aimed at children, whereas our product is aimed at people of all ages. It can support all kinds of learning apps, as well as serve as a more general assistant. With our open SDK, our robot can be useful, relevant and accessible to everyone.
+Moreover, most refreshable braille learning devices that are currently on the market are aimed at children, whereas our product is aimed at users of all ages. It can support all kinds of learning apps, as well as serve as a more general assistant. With our open SDK, our robot can be useful, relevant and accessible to everyone.
 
 
 \subsection{High-level description} 
 
 louis is primarily a voice controlled learning assistant, complete with a speaker, that helps visually impaired individuals learn braille easily and conveniently. It makes use of quizzes and games to allow its users to learn from basic braille characters to more advanced concepts such as contractions.
 
-A unique aspect of louis that distinguishes itself from its competitors is that it has a modular architecture for both software and hardware, therefore the users only need to purchase as many parts as they believe will be helpful. This would give an affordable opportunity for any of those people wanting to learn braille, but are unable to do so due to the current financial boundaries. louis also provides an application ecosystem where developers can build software using the development toolkit included with the product. Developers could create new tools and applications such as an app to read news headlines, an Alexa integration, an image annotator and countless others. The open approach with software development makes our product truly useful beyond our small team.
+A unique aspect of louis that distinguishes itself from its competitors is that it has a modular architecture for both software and hardware, therefore the users only need to purchase as many parts as they believe will be helpful. This would give an affordable opportunity for any of those people wanting to learn braille, but are unable to do so due to the current financial boundaries. louis also provides an application ecosystem where developers can build software using the development toolkit included with the product. Developers could create new tools and applications such as an app to read news headlines, an Alexa integration, a braille music tutor and countless others. The open approach with software development makes our product truly useful beyond our small team.
 
 \subsubsection{User Stories}
 
@@ -86,7 +86,7 @@ The two main dependencies concern the output of braille letters, as the teaching
  
 Another one concerns user input, in terms of application selection and letter display speeds. The input method can be chosen at a later date, as physical or audio inputs would yield the same results, but this information needs to be present first before the device can generate the next letters for display. 
  
-These main system requirements are summarized in the goal model shown in figure \ref{fig:goalmodel}.
+These main system requirements are summarized in the goal model shown in Figure \ref{fig:goalmodel}.
 
 \begin{figure*}[h]
 \vskip 5mm
@@ -105,21 +105,12 @@ We have defined the following milestones and evaluation measures based on the te
 \subsubsection{Hardware}
 
 \begin{enumerate}
-  \item Casing
-  \begin{enumerate}
-    \item Milestones:
-    \begin{enumerate}
-      \item Prototype in Lego
-      \item 3D printed prototype
-      \item Enclosure and fittings
-    \end{enumerate}
-  \end{enumerate}
   \item Working display mechanism with pins
   \begin{enumerate}
     \item Milestones:
     \begin{enumerate}
       \item Motor rotates, pins move up and down
-      \item Two additional 3D printed cells
+      \item Two additional 3D-printed cells
       \item Audio or physical input integration
     \end{enumerate}
     \item Evidence and evaluation:
@@ -127,6 +118,15 @@ We have defined the following milestones and evaluation measures based on the te
       \item Correct display of one specific letter (e.g `A')
       \item Correct display of sequence of three letters
       \item Audio output confirming speed and app choice
+    \end{enumerate}
+  \end{enumerate}
+  \item Casing
+  \begin{enumerate}
+    \item Milestones:
+    \begin{enumerate}
+      \item Prototype in Lego
+      \item 3D-printed prototype
+      \item Enclosure and fittings
     \end{enumerate}
   \end{enumerate}
 \end{enumerate}
@@ -173,7 +173,7 @@ To make the high-level tasks more manageable, we will be routinely incorporating
 
 Our company, ThreeDots, is composed of ten members. Over the next eleven weeks, each will commit approximately 200 hours to our project, louis.
 
-Ten percent of this time will be remitted to allow individuals to complete their final report. This is proportional to the allocated marks (relative to the rest of the project), as well as to the time available after the final demonstration (1 week).
+Ten percent of this time will be remitted to allow individuals to complete their final report. This is proportional to the allocated marks (relative to the rest of the project), as well as to the time available after the final demonstration (one week).
 
 This leaves 180 hours per capita, (a combined 1,800 hours), to allocate between:
 \begin{enumerate}
@@ -184,7 +184,7 @@ This leaves 180 hours per capita, (a combined 1,800 hours), to allocate between:
   \item Performing market research and product evaluation
 \end{enumerate}
 
-The allocation of these hours is shown in table \ref{table:hours}.
+The allocation of these hours is shown in Table \ref{table:hours}.
 
 \begin{table}[]
 \begin{center}
@@ -244,7 +244,7 @@ Financial budgeting and the tracking of technician time will be completed using 
 
 At this time, we do not anticipate requiring any custom, externally-ordered components.
 
-The simplified bill of materials and budget estimation calculations have been provided in table \ref{table:budget}.
+The simplified bill of materials and budget estimation calculations have been provided in Table \ref{table:budget}.
 
 \begin{table}[]
 \begin{center}
@@ -269,7 +269,7 @@ Total Cost              & 10                      & 98                 \\ \hline
 
 \subsection{Risk assessment}
 
-Risks regarding the project and its development were measured with respect to table \ref{table:severity} and table \ref{table:likelihood}.
+Risks regarding the project and its development were measured with respect to Table \ref{table:severity} and Table \ref{table:likelihood}.
 
 \begin{table}[h]
 \begin{center}
@@ -303,7 +303,7 @@ High (3)   & Risk is likely to occur                                           \
 \label{table:likelihood}
 \end{table}
 
-Potential risks identified and corresponding actions that will be taken if we are required to face them are described in table \ref{table:riskstable}.
+Potential risks identified and corresponding actions that will be taken if we are required to face them are described in Table \ref{table:riskstable}.
 
 \begin{table*}[h]
 \begin{center}
@@ -330,7 +330,7 @@ Not successful in creating several quizzes and games                            
 
 \subsubsection{Strengths, weaknesses, opportunities and threats}
 
-The strengths, weaknesses, opportunities and threats of this project have been outlined in table \ref{table:swottable}.
+The strengths, weaknesses, opportunities and threats of this project have been outlined in Table \ref{table:swottable}.
 
 \begin{table*}[h]
 \begin{center}
@@ -370,15 +370,15 @@ Opportunities (external factors)                                                
 
 The organisational structure is based on the distribution of pre-existing skills as to increase the probability of on-time delivery of the project while still accommodating individual team members' desire to learn new skills in areas they lack expertise. The project manager is responsible for activity and resource allocation, as well as risk analysis and contingency planning, whereas the secretary is concerned with the management of deadlines and meeting planning.
 
-The rest of the team is divided into the functional units of hardware and software, and sub-units for system design, and low-level/high-level for software. Communication between the system design role of hardware and software is essential in order to ensure the interoperability of the systems developed independently by the team members.
+The rest of the team is divided into the functional units of \emph{hardware} and \emph{software}, and sub-units for system design, and low-level/high-level for software. Communication between the system design role of hardware and software is essential in order to ensure the interoperability of the systems developed independently by the team members.
 
 All communication is handled on Slack to avoid scattering of information and to ensure consistency and transparency. The number of channels is reduced to a minimum.
 
 Fixed weekly meetings for the whole team are scheduled in advance to ensure the availability of all team members to discuss the current progress of the project and potentially plan adjustment measures. Additionally, team members are committed to daily stand-ups on Slack with the aim of synchronizing information among the team and identifying potential issues.
 
-Code-sharing and version control are all handled using git and Github. In order to guarantee the cleanliness and functionality of the code base, a contribution procedure is enforced by which commits cannot be pushed directly to the master branch but must be submitted using pull requests. The pull requests are then peer-reviewed by other team members and automatically checked for compilation errors in the continuous integration pipeline.
+Code-sharing and version control are all handled using git and GitHub. In order to guarantee the cleanliness and functionality of the code base, a contribution procedure is enforced by which commits cannot be pushed directly to the master branch but must be submitted using pull requests. The pull requests are then peer-reviewed by other team members and automatically checked for compilation errors in the continuous integration pipeline.
 
-A graph detailing the group subdivision by functional unit is included in figure \ref{fig:organisation}.
+A graph detailing the group subdivision by functional unit is included in Figure \ref{fig:organisation}.
 
 \begin{figure*}[h]
 \vskip 5mm
